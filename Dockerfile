@@ -1,13 +1,3 @@
-#FROM golang:1.8.0-alpine
-#
-#ADD . /go/src/app
-#
-#WORKDIR /go/src/app
-#
-#RUN GOOS=linux GOARCH=386 go build -v -o /go/src/app/jenkins-app && go get github.com/beego/beego/v2@v2.0.0
-#
-#CMD ["./jenkins-app"]
-
 ## 单阶段构建
 #FROM golang:latest
 #MAINTAINER  <>
@@ -36,8 +26,6 @@ WORKDIR /app
 COPY . /app
 RUN ["ln","-sf","/usr/share/zoneinfo/Asia/Shanghai","/etc/localtime"]
 RUN GO111MODULE="on" GOPROXY="https://goproxy.cn" CGO_ENABLED=0 GOOS=linux go build -o jenkins-demo
-RUN go mod init
-RUN go mod tidy
 
 #############################
 ## STEP 2 build a small image
