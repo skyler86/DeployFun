@@ -14,7 +14,7 @@ func (this *MainController) Get() {
 }
 
 func main() {
-	var branch = "main"
+	var branch = "master"
 	fmt.Println("Hello, Kubernetes！I'm from Jenkins CI！")
 	fmt.Println("BRANCH_NAME:", branch)
 
