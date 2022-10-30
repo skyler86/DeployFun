@@ -36,6 +36,8 @@ WORKDIR /app
 COPY . /app
 RUN ["ln","-sf","/usr/share/zoneinfo/Asia/Shanghai","/etc/localtime"]
 RUN GO111MODULE="on" GOPROXY="https://goproxy.cn" CGO_ENABLED=0 GOOS=linux go build -o jenkins-demo
+RUN go mod init
+RUN go mod tidy
 
 #############################
 ## STEP 2 build a small image
