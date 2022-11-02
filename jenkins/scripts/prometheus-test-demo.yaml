@@ -4,7 +4,7 @@ metadata:
   labels:
     app: prometheus-test-demo
   name: prometheus-test-demo
-  namespace: default
+  namespace: jobfun
 spec:
   replicas: 1
   selector:
@@ -21,13 +21,14 @@ spec:
         app: prometheus-test-demo
     spec:
       containers:
-      - image: harbor.edu.cn/library/prometheus-test-demo:{VERSION}
+      - image: 192.168.2.10/jenkins/prometheus-test-demo:{VERSION}
         name: prometheus-test-demo
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: prometheus-test-demo
+  namespace: jobfun
   labels:
     app: prometheus-test-demo
 spec:
