@@ -6,7 +6,7 @@ RUN echo 'Asia/Shanghai' >/etc/timezone
 ENV JAVA_OPTS ''
 
 WORKDIR /app
-ADD /volume/nfs/jenkins/workspace/job-demo/target/prometheus-test-demo-0.0.1-SNAPSHOT.jar /var/jenkins_home/workspace/job-demo/target/prometheus-test-demo-0.0.1-SNAPSHOT.jar
+ADD target/prometheus-test-demo-0.0.1-SNAPSHOT.jar .
 
 ENTRYPOINT ["sh", "-c", "set -e && java -XX:+PrintFlagsFinal \
                                            -XX:+HeapDumpOnOutOfMemoryError \
