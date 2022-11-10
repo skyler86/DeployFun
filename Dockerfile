@@ -8,7 +8,7 @@ ENV JAVA_OPTS ''
 
 WORKDIR /apps/jenkins
 
-ADD target/prometheus-test-demo-0.0.1-SNAPSHOT.jar .
+ADD target/prometheus-test-demo-0.0.1-SNAPSHOT.jar /apps/jenkins/
 
 ENTRYPOINT ["sh", "-c", "set -e && java -XX:+PrintFlagsFinal \
                                            -XX:+HeapDumpOnOutOfMemoryError \
