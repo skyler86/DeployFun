@@ -6,7 +6,7 @@ RUN echo 'Asia/Shanghai' >/etc/timezone
 
 ENV JAVA_OPTS ''
 
-WORKDIR /app
+WORKDIR /apps/jenkins
 
 ADD target/prometheus-test-demo-0.0.1-SNAPSHOT.jar .
 
