@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION_ID="${BUILD_ID}"
+VERSION_ID=$1
 
 docker build -t prometheus-test-demo:${VERSION_ID} -f Dockerfile .
 
