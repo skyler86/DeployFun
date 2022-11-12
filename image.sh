@@ -1,11 +1,9 @@
 #!/bin/sh
 
-IMAGE_NAME="prometheus-test-demo"
 VERSION_ID="${BUILD_ID}"
-IMAGE_ADDR="192.168.2.10/jenkins/${IMAGE_NAME}"
 
-docker build -f Dockerfile -t ${IMAGE_NAME}:${VERSION_ID} .
+docker build -t prometheus-test-demo:${VERSION_ID} -f Dockerfile .
 
-docker tag  ${IMAGE_NAME}:${VERSION_ID}  ${IMAGE_ADDR}:${VERSION_ID}
+docker tag  prometheus-test-demo:${VERSION_ID} 192.168.2.10/jenkins/prometheus-test-demo:${VERSION_ID}
 docker login --username=admin --password=rainbow123 192.168.2.10
-docker push ${IMAGE_ADDR}:${VERSION_ID}
+docker push 192.168.2.10/jenkins/prometheus-test-demo:${VERSION_ID}
